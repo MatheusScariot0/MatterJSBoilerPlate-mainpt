@@ -25,6 +25,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
+
 	var block1_options = {
 		restitution: 0.5,
 		frictionAir: 0.,
@@ -46,8 +47,10 @@ function setup() {
 	var plane_options = {
 		isStatic: true
 
-	}
 
+	}
+plane = Bodies.rectangle(200,390,400,10,plane_options)
+World.add(world, plane)
 	block1 = Bodies.circle(300, 20, 10, block1_options);
 	World.add(world, block1);
 
@@ -57,30 +60,20 @@ function setup() {
 	block3 = Bodies.rectangle(350, 50, 10, 10, block3_options);
 	World.add(world, block3);
 	
+
 	rectMode(CENTER);
-	ellipseMode(RADIUS);
+	ellipseMode(RADIUS); 
 }
 
 
 function draw() {
-	Engine.run(engine);
-	background(51);
+	background("lightgreen");
 	Engine.update(engine);
 	drawSprites();
 	ellipse(block1.position.x, block1.position.y, 10);
-	ellipse(block2.position.x, block2.position.y, 20);
-	rect(plane.position.x, plane.position.y, 200, 20);
-	rect(wall.position.x, wall.position.y, 200, 20);
-
-	Matter.Body(wedge, angle);
-	push()
-	Translate(wedge.position.x, wedge.position.y);
-	rotate(angle);
-
-	rect(0, 0, 100, 20)
-	pop();
-	angle += 0.1
-	rect(wall.position.x, wall.position.y, 70, 20);
+	rect(block2.position.x, block2.position.y, 20,20);
+	rect(block3.position.x,block3.position.y,60,30);
+rect(plane.position.x,plane.position.y,400,10)
 }
 
 
